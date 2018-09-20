@@ -31,6 +31,22 @@
     },
     "resources": [
         {
+            "Key": "00143450-0ec6-4898-bcae-2b14c134ccee",
+            "Value": {
+                "id": "fd0d6770-941e-441c-8bb0-3beab61a319e",
+                "resourcePath": "objects\\o_cameraController\\o_cameraController.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "078cbe92-9c5e-4c20-85cc-2957c9d11e01",
+            "Value": {
+                "id": "243403db-28b1-48a6-9be9-53d964711ef2",
+                "resourcePath": "scripts\\calculate_movement_and_collision\\calculate_movement_and_collision.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0904aee6-490b-4907-a26a-23aae875207a",
             "Value": {
                 "id": "e9f0bdda-9b75-4a43-be54-b34ed7c229cd",
@@ -138,7 +154,7 @@
             "Key": "490350c6-ebd8-4c93-9818-4d0182a7279d",
             "Value": {
                 "id": "9f179997-d6f7-4912-b699-b1c6963dfb0a",
-                "resourcePath": "objects\\o_parent_depth\\o_parent_depth.yy",
+                "resourcePath": "objects\\o_parentDepth\\o_parentDepth.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -159,14 +175,6 @@
             }
         },
         {
-            "Key": "6b924425-6db6-40fa-bc15-edeab568fb46",
-            "Value": {
-                "id": "5543c1fa-b4a2-4764-b1e6-8f19667cad9d",
-                "resourcePath": "sprites\\s_PlayerIdle1\\s_PlayerIdle1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "6b972a00-b59e-42c6-9b75-4c25fd783bf9",
             "Value": {
                 "id": "10ad5ffe-4286-4150-bfcc-5430c85853ce",
@@ -175,10 +183,10 @@
             }
         },
         {
-            "Key": "70471327-188a-43f2-a76b-eb5ed58e482c",
+            "Key": "6f50ff1f-aff2-47fa-8f25-2a8e6e732df4",
             "Value": {
-                "id": "1b18c918-05d4-482b-8a3d-d3fe0bb1f122",
-                "resourcePath": "objects\\object5\\object5.yy",
+                "id": "a0f33b57-6d13-48e3-ac01-98bc89d181f8",
+                "resourcePath": "objects\\o_collision\\o_collision.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -196,14 +204,6 @@
                 "id": "117fdda1-4f16-4bcb-831e-cb7eb1da2cf4",
                 "resourcePath": "sprites\\s_grid\\s_grid.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "a281243d-e221-4d82-b411-c28bd0e03731",
-            "Value": {
-                "id": "5857ae8c-f505-49ec-ad0a-70c11caf0d78",
-                "resourcePath": "scripts\\add_velocity\\add_velocity.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -227,14 +227,6 @@
             "Value": {
                 "id": "0e2f6703-948b-41cd-814b-d9200c8b27c5",
                 "resourcePath": "sprites\\s_car\\s_car.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "bbce993b-aa53-4b85-864d-f403320e6217",
-            "Value": {
-                "id": "022d2474-2cbd-47f1-a3e5-2e4dfdcb4906",
-                "resourcePath": "sprites\\s_barrel\\s_barrel.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -298,7 +290,7 @@
             "Key": "ed084c58-1057-4f7b-8149-96596327d685",
             "Value": {
                 "id": "dbfe44ac-0a17-4c96-b246-698478f0595c",
-                "resourcePath": "objects\\o_pillar\\o_pillar.yy",
+                "resourcePath": "objects\\o_staticObject\\o_staticObject.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -323,8 +315,8 @@
         "ecd6d8a9-c83d-4e12-9f91-4ff9299e3fa9",
         "64809d3f-069a-498b-8041-cc57cc82c97b",
         "3c76e36b-6001-4aff-b215-e7942a998fb0",
-        "a281243d-e221-4d82-b411-c28bd0e03731",
-        "fb2529a6-325c-495b-904d-fc30938d2cfd"
+        "fb2529a6-325c-495b-904d-fc30938d2cfd",
+        "078cbe92-9c5e-4c20-85cc-2957c9d11e01"
     ],
     "tutorial": ""
 }

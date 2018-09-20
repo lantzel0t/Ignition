@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description 
 if(ds_exists(ds_depthgrid, ds_type_grid))
 {
 	ds_grid_sort(ds_depthgrid, 1, true);
