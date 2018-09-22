@@ -1,5 +1,5 @@
 #region controls
-gamepad_set_axis_deadzone(0,0.5);
+gamepad_set_axis_deadzone(1,0.25);
 switch (control_scheme)
 {
 	case "keyboard":
@@ -9,10 +9,10 @@ switch (control_scheme)
 	var key_right = keyboard_check(ord("D"));
 	break;
 	case "controller":
-	var key_up =	gamepad_button_value(0, gp_shoulderrb);
-	var key_left =  gamepad_axis_value(0, gp_axislh) * invertX;
-	var key_down =  gamepad_button_value(0, gp_shoulderlb);
-	var key_right = 0;
+	var key_up =	gamepad_button_value(1, gp_shoulderrb);
+	var key_left =  -gamepad_axis_value(1, gp_axislh);
+	var key_down =  gamepad_button_value(1, gp_shoulderlb);
+	var key_right = keyboard_check(ord("D"));
 	break;
 }
 #endregion
@@ -22,8 +22,6 @@ y_axis = (key_down - key_up);
 vel[0] = clamp(vel[0] + x_axis, -maxvel, maxvel);
 vel[1] = clamp(vel[1] - (y_axis * accel), -maxvel, maxvel);
 
-leftWheelY = sin(degtorad(playerAng));
-leftWheelX = cos(degtorad(playerAng));
 //if no buttons are pressed, lerp any movement back to 0
 if (x_axis == 0)
 {
@@ -61,3 +59,12 @@ if (abs(playerAng) > 360)
 	playerAng = 0;
 }
 image_angle = global._viewang + playerAng;
+
+//wheel math!
+var sinPlayerAng = sin(degtorad(playerAng + 90));
+var cosPlayerAng = cos(degtorad(playerAng + 90));
+leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
+leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
+rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
+rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
+wheelAngle = playerAng + radtodeg(turnAng/4);
