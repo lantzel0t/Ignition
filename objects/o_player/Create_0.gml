@@ -9,3 +9,6 @@ vel = [0, 0];
 maxvel = 12;
 accel = 0.2;
 fric = 1;
+invertX = -1;
+frontAxle = 50;
+distancetoWheel = 50;

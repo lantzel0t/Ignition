@@ -1,4 +1,5 @@
 #region controls
+gamepad_set_axis_deadzone(0,0.5);
 switch (control_scheme)
 {
 	case "keyboard":
@@ -8,23 +9,25 @@ switch (control_scheme)
 	var key_right = keyboard_check(ord("D"));
 	break;
 	case "controller":
-	var key_up =	keyboard_check(ord("W"));
-	var key_left =  keyboard_check(ord("A"));
-	var key_down =  keyboard_check(ord("S"));
-	var key_right = keyboard_check(ord("D"));
+	var key_up =	gamepad_button_value(0, gp_shoulderrb);
+	var key_left =  gamepad_axis_value(0, gp_axislh) * invertX;
+	var key_down =  gamepad_button_value(0, gp_shoulderlb);
+	var key_right = 0;
 	break;
 }
 #endregion
 //interpret input
-x_axis = (-key_left + key_right);
-y_axis = (-key_up + key_down);
+x_axis = (key_right - key_left);
+y_axis = (key_down - key_up);
 vel[0] = clamp(vel[0] + x_axis, -maxvel, maxvel);
 vel[1] = clamp(vel[1] - (y_axis * accel), -maxvel, maxvel);
 
+leftWheelY = sin(degtorad(playerAng));
+leftWheelX = cos(degtorad(playerAng));
 //if no buttons are pressed, lerp any movement back to 0
 if (x_axis == 0)
 {
-	turnAng = lerp(turnAng, 0, 0.2);
+	turnAng = lerp(turnAng, 0, 0.5);
 }
 if (y_axis == 0)
 {
@@ -40,12 +43,21 @@ x -= sin(degtorad(playerAng)) * vel[1];
 y -= cos(degtorad(playerAng)) * vel[1];
 
 //turns the wheelies
-turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
-
-//when not turning, sets wheels forward
+if (y_axis < 0)
+{
+	turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
+}
+else if (y_axis > 0)
+{
+	turnAng = clamp(turnAng + (0.5 * x_axis), -maxTurnAng, maxTurnAng);
+}
+  //when not turning, sets wheels forward
 if (x_axis == 0)
 {
-	clamp(turnAng + 0.1, -maxTurnAng, maxTurnAng);
+	clamp(turnAng + 0.2, -maxTurnAng, maxTurnAng);
 }
-
+if (abs(playerAng) > 360)
+{
+	playerAng = 0;
+}
 image_angle = global._viewang + playerAng;
