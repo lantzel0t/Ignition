@@ -1,5 +1,5 @@
 #region controls
-gamepad_set_axis_deadzone(1,0.25);
+gamepad_set_axis_deadzone(0,0.25);
 switch (control_scheme)
 {
 	case "keyboard":
@@ -7,12 +7,14 @@ switch (control_scheme)
 	var key_left =  keyboard_check(ord("A"));
 	var key_down =  keyboard_check(ord("S"));
 	var key_right = keyboard_check(ord("D"));
+	var key_dump =  keyboard_check(ord("F"));
 	break;
 	case "controller":
-	var key_up =	gamepad_button_value(1, gp_shoulderrb);
-	var key_left =  -gamepad_axis_value(1, gp_axislh);
-	var key_down =  gamepad_button_value(1, gp_shoulderlb);
-	var key_right = keyboard_check(ord("D"));
+	var key_up =	gamepad_button_value(0, gp_shoulderrb);
+	var key_left = -gamepad_axis_value(0, gp_axislh);
+	var key_down =  gamepad_button_value(0, gp_shoulderlb);
+	var key_right = 0;
+	var key_dump =  gamepad_button_check(0, gp_face1);
 	break;
 }
 #endregion
@@ -37,8 +39,7 @@ if (y_axis != 0)
 	playerAng += turnAng;	
 }
 //move car based on velocity
-x -= sin(degtorad(playerAng)) * vel[1];
-y -= cos(degtorad(playerAng)) * vel[1];
+calculate_movement_and_collision();
 
 //turns the wheelies
 if (y_axis < 0)
@@ -59,6 +60,11 @@ if (abs(playerAng) > 360)
 	playerAng = 0;
 }
 image_angle = global._viewang + playerAng;
+
+if (key_dump && alarm[0] == -1)
+{
+	alarm[0] = 2;
+}
 
 //wheel math!
 var sinPlayerAng = sin(degtorad(playerAng + 90));

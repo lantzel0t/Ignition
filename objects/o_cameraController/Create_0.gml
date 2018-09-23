@@ -6,3 +6,4 @@ global._viewy = cos(global._viewang);
 _camfriction = 0.1;
 _maxcamspeed = 2;
 _camspeed = 0;
+control_scheme = "controller";

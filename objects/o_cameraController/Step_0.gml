@@ -1,5 +1,15 @@
 /// @description This object handles the camera
-
+switch (control_scheme)
+{
+	case "keyboard":
+	var key_camL = keyboard_check(ord("Q"));
+	var key_camR = keyboard_check(ord("E"));
+	break;
+	case "controller":
+	var key_camL =	gamepad_button_check(0, gp_shoulderl);
+	var key_camR =  gamepad_button_check(0, gp_shoulderr);
+	break;
+}
 //camera math
 camera_set_view_angle(view_camera[0], -global._viewang);
 global._viewang += _camspeed;
@@ -7,11 +17,11 @@ global._viewx = sin(degtorad(global._viewang));
 global._viewy = cos(degtorad(global._viewang));
 
 #region debug controls
-if (keyboard_check(ord("Q")) && _camspeed < _maxcamspeed)
+if (key_camL && _camspeed < _maxcamspeed)
 {
 	_camspeed += 0.5;
 }
-if (keyboard_check(ord("E")) && _camspeed > - _maxcamspeed)
+if (key_camR && _camspeed > - _maxcamspeed)
 {
 	_camspeed -= 0.5;
 }

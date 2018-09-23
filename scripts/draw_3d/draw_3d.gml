@@ -11,7 +11,7 @@ for (var _i = 0; _i < sprite_get_number(sprite); _i++) //loops through the subim
 					oy - (global._viewy * _i) * global._viewz, //y offset based on i, with z angle modifier
 					image_xscale,
 					image_yscale,
-					angle - global._viewang, //keeps the 3d model visually upright
+					angle, //keeps the 3d model visually upright
 					image_blend,
 					image_alpha);
 }
