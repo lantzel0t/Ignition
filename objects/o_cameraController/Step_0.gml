@@ -1,5 +1,5 @@
 /// @description This object handles the camera
-switch (control_scheme)
+switch (global.control_scheme)
 {
 	case "keyboard":
 	var key_camL = keyboard_check(ord("Q"));

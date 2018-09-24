@@ -1,6 +1,6 @@
 #region controls
 gamepad_set_axis_deadzone(0,0.25);
-switch (control_scheme)
+switch (global.control_scheme)
 {
 	case "keyboard":
 	var key_up =	keyboard_check(ord("W"));
@@ -61,6 +61,7 @@ if (abs(playerAng) > 360)
 }
 image_angle = global._viewang + playerAng;
 
+//dump fuel
 if (key_dump && alarm[0] == -1)
 {
 	alarm[0] = 2;
@@ -74,3 +75,14 @@ leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
 rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
 wheelAngle = playerAng + radtodeg(turnAng/4);
+
+skid_sys = part_system_create();
+skid_emitter = part_emitter_create(skid_sys);
+skid = part_type_create();
+part_type_scale(skid, 6, 6);
+part_type_alpha1(skid, 0.3);
+part_type_life(skid, 20, 20)
+//part_particles_create(skid_sys, x + leftWheelX, y + leftWheelY, skid, 1);
+//part_particles_create(skid_sys, x + rightWheelX, y + rightWheelY, skid, 1);
+//part_particles_create(skid_sys, x + (cosPlayerAng * distancetoWheel), y + (sinPlayerAng * distancetoWheel), skid, 1);
+//part_particles_create(skid_sys, x + (cosPlayerAng * -distancetoWheel), y + (sinPlayerAng * -distancetoWheel), skid, 1);
