@@ -31,24 +31,26 @@ if (x_axis == 0)
 }
 if (y_axis == 0)
 {
-	vel[1] = lerp(vel[1], 0, 0.2);	
+	vel[1] = lerp(vel[1], 0, fric);	
 }
 //if moving forward, add wheel rotation
 if (y_axis != 0)
 {
-	playerAng += turnAng;	
+	//playerAng += turnAng;
 }
 //move car based on velocity
 calculate_movement_and_collision();
 
 //turns the wheelies
-if (y_axis < 0)
+if (vel[1] > 0.1)
 {
 	turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
+	playerAng += turnAng;
 }
-else if (y_axis > 0)
+else if (vel[1] < -0.1)
 {
-	turnAng = clamp(turnAng + (0.5 * x_axis), -maxTurnAng, maxTurnAng);
+	turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
+	playerAng -= turnAng;
 }
   //when not turning, sets wheels forward
 if (x_axis == 0)
@@ -74,7 +76,7 @@ leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
 rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
-wheelAngle = playerAng + radtodeg(turnAng/4);
+wheelAngle = playerAng + radtodeg(turnAng/6);
 
 skid_sys = part_system_create();
 skid_emitter = part_emitter_create(skid_sys);
