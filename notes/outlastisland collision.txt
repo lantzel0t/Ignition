@@ -1,0 +1,97 @@
+///@param tile_map_id
+///@param tile_size
+///@param velocity_array
+var tile_map_id = argument0;
+var tile_size = argument1;
+var velocity = argument2;
+
+var vector2_x = 0;
+var vector2_y = 1;
+
+#region horizontal
+if (place_meeting(x + velocity[vector2_x], y, o_collidable))
+{
+	yplus = 0;
+	while (place_meeting(x + velocity[vector2_x], y - yplus, o_collidable) && yplus <= abs(3*velocity[vector2_x]))
+	{
+		yplus += 1;
+	}
+	if (place_meeting(x + velocity[vector2_x], y - yplus, o_collidable))
+	{
+		while (!place_meeting(x + sign(velocity[vector2_x]), y, o_collidable))
+		{
+			x += sign(velocity[vector2_x]);
+		} 
+		velocity[@ vector2_x] = 0;
+	}
+	else
+	{
+		y -= yplus;
+	}
+}
+
+x += velocity[vector2_x];
+
+//tile collision
+if velocity[vector2_x] > 0
+{
+	var tile_right = tile_collide(tile_map_id, [bbox_right, bbox_top], [bbox_right, bbox_bottom - 1]);
+	if (tile_right)
+	{
+		x = (bbox_right & ~ (tile_size - 1)) - 1;
+		x -= bbox_right - x;
+		velocity[@ vector2_x] = 0;
+	}
+}
+else
+{
+	var tile_left = tile_collide(tile_map_id, [bbox_left, bbox_top], [bbox_left, bbox_bottom - 1]);
+	if (tile_left)
+	{
+		x = bbox_left & ~ (tile_size - 1);
+		x += tile_size + x - bbox_left;
+		velocity[@ vector2_x] = 0;
+	}
+}
+#endregion
+
+#region vertical
+if (place_meeting(x, y + velocity[vector2_y], o_collidable))
+{
+	while (!place_meeting(x, y + sign(velocity[vector2_y]), o_collidable))
+	{
+		y += sign(velocity[vector2_y]);
+		//show_debug_message("While!");
+		//y -= velocity[vector2_y];
+	} 
+	//show_debug_message("yCollide!");
+	velocity[@ vector2_y] = 0;
+}
+y += velocity[vector2_y];
+if (velocity[vector2_y] > 0)
+{
+	var tile_bottom = tile_collide(tile_map_id, [bbox_left, bbox_bottom], [bbox_right - 1, bbox_bottom]);
+	if (tile_bottom)
+	{
+		y = (bbox_bottom & ~(tile_size - 1)) - 1;
+		y -= bbox_bottom - y;
+		velocity[@ vector2_y] = 0;
+	}
+}
+else
+{
+	var tile_top = tile_collide(tile_map_id,  [bbox_left, bbox_top], [bbox_right - 1, bbox_top - 1]);
+	if (tile_top)
+	{
+		y = bbox_top & ~(tile_size - 1);
+		y += tile_size + y - bbox_top;
+		velocity[@ vector2_y] = 0;
+	}
+}
+#endregion
+
+/*if (place_meeting(x, y-20, o_water))
+{
+	y -= global.grav + 9;
+}
+*/

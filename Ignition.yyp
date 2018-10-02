@@ -79,6 +79,14 @@
             }
         },
         {
+            "Key": "1103379f-9c3e-40f1-892f-34fbc1400667",
+            "Value": {
+                "id": "f8c2a263-2139-430f-a2de-e20db26b4dfb",
+                "resourcePath": "objects\\o_pathfollow\\o_pathfollow.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "144e4511-92de-4081-8b97-89bd29aee83a",
             "Value": {
                 "id": "439c2c16-4d6f-4854-9f95-d73c632d05d4",
@@ -271,6 +279,22 @@
             }
         },
         {
+            "Key": "8e3e131c-1d55-4147-9b87-9efd4d1d5d9e",
+            "Value": {
+                "id": "034d105f-84a8-4718-b3f1-7cf547d7bd4e",
+                "resourcePath": "sprites\\sprite6\\sprite6.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8e495318-edca-4a23-b023-7dfd449375f8",
+            "Value": {
+                "id": "9f71ffe7-a360-4dec-9e7b-1845b909018b",
+                "resourcePath": "notes\\outlastisland collision.yy",
+                "resourceType": "GMNotes"
+            }
+        },
+        {
             "Key": "8ed58ff1-6c5b-4889-b04c-658e02b5101b",
             "Value": {
                 "id": "117fdda1-4f16-4bcb-831e-cb7eb1da2cf4",
@@ -284,6 +308,14 @@
                 "id": "7f70a692-fadf-4485-8538-75e90d4993e3",
                 "resourcePath": "sprites\\s_gasPool\\s_gasPool.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "96c97222-e5aa-4118-b7b3-226fc1d3b3ed",
+            "Value": {
+                "id": "23fd701c-e1d8-4ba8-bf83-6412366dc8a2",
+                "resourcePath": "objects\\o_enemyCar\\o_enemyCar.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -359,6 +391,14 @@
             }
         },
         {
+            "Key": "dfa3ef56-acec-48e8-94ea-ee03e230f33d",
+            "Value": {
+                "id": "dde3e28a-da01-46f5-97f0-c992ac5aaf52",
+                "resourcePath": "sprites\\s_carai\\s_carai.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e3aa03ce-a58a-463f-b42f-8d3ec9511bb9",
             "Value": {
                 "id": "4f79f9fe-f56d-4e2f-a530-7c12f522c7cb",
@@ -396,6 +436,14 @@
                 "id": "dbfe44ac-0a17-4c96-b246-698478f0595c",
                 "resourcePath": "objects\\o_staticObject\\o_staticObject.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "eee25a17-df9d-497a-a6fe-4b4560f20172",
+            "Value": {
+                "id": "85e07103-f470-41b0-a96e-79af84c2aef4",
+                "resourcePath": "paths\\path0\\path0.yy",
+                "resourceType": "GMPath"
             }
         },
         {
