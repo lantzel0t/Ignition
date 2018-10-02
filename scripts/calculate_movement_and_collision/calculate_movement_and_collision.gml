@@ -1,2 +1,2 @@
-x -= sin(degtorad(playerAng)) * vel[1];
-y -= cos(degtorad(playerAng)) * vel[1];
+x -= sin(degtorad(playerAng)) * vel;
+y -= cos(degtorad(playerAng)) * vel;

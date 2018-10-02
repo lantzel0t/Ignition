@@ -18,6 +18,7 @@ if (image_xscale > 0.9 && collision_point(x,y,o_player,false,true))
 if (ignited)
 {
 	alarm[0] = 30;
+	alarm[1] = 10;
 	ignited = false;
 }
 if (image_blend = c_red)

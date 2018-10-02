@@ -8,21 +8,26 @@ switch (global.control_scheme)
 	var key_down =  keyboard_check(ord("S"));
 	var key_right = keyboard_check(ord("D"));
 	var key_dump =  keyboard_check(ord("F"));
+	x_axis = (key_right - key_left);
+	y_axis = (key_down - key_up);
+	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
+	targTurnAng = x_axis * maxTurnAng;
 	break;
 	case "controller":
 	var key_up =	gamepad_button_value(0, gp_shoulderrb);
-	var key_left = -gamepad_axis_value(0, gp_axislh);
+	var key_left =  gamepad_axis_value(0, gp_axislh);
 	var key_down =  gamepad_button_value(0, gp_shoulderlb);
 	var key_right = 0;
 	var key_dump =  gamepad_button_check(0, gp_face1);
+	x_axis = (key_right - key_left);
+	y_axis = (key_down - key_up);
+	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
+	targTurnAng = x_axis * maxTurnAng;
 	break;
 }
 #endregion
 //interpret input
-x_axis = (key_right - key_left);
-y_axis = (key_down - key_up);
-vel[0] = clamp(vel[0] + x_axis, -maxvel, maxvel);
-vel[1] = clamp(vel[1] - (y_axis * accel), -maxvel, maxvel);
+turnAng = lerp(turnAng, targTurnAng, 0.25); 
 
 //if no buttons are pressed, lerp any movement back to 0
 if (x_axis == 0)
@@ -31,7 +36,7 @@ if (x_axis == 0)
 }
 if (y_axis == 0)
 {
-	vel[1] = lerp(vel[1], 0, fric);	
+	vel = lerp(vel, 0, fric);	
 }
 //if moving forward, add wheel rotation
 if (y_axis != 0)
@@ -42,20 +47,21 @@ if (y_axis != 0)
 calculate_movement_and_collision();
 
 //turns the wheelies
-if (vel[1] > 0.1)
+if (vel > 0.1)
 {
-	turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
-	playerAng += turnAng;
+	//turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
+	playerAng += turnAng * (abs(vel) / maxvel);
 }
-else if (vel[1] < -0.1)
+else if (vel < -0.1)
 {
-	turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
-	playerAng -= turnAng;
+	
+	playerAng -= turnAng * (abs(vel) / maxvel);
 }
+
   //when not turning, sets wheels forward
 if (x_axis == 0)
 {
-	clamp(turnAng + 0.2, -maxTurnAng, maxTurnAng);
+	//clamp(turnAng + 0.2, -maxTurnAng, maxTurnAng);
 }
 if (abs(playerAng) > 360)
 {
@@ -76,7 +82,7 @@ leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
 rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
-wheelAngle = playerAng + radtodeg(turnAng/6);
+wheelAngle = playerAng + radtodeg(turnAng/10);
 
 skid_sys = part_system_create();
 skid_emitter = part_emitter_create(skid_sys);
