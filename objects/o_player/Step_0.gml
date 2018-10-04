@@ -8,25 +8,21 @@ switch (global.control_scheme)
 	var key_down =  keyboard_check(ord("S"));
 	var key_right = keyboard_check(ord("D"));
 	var key_dump =  keyboard_check(ord("F"));
-	x_axis = (key_right - key_left);
-	y_axis = (key_down - key_up);
-	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
-	targTurnAng = x_axis * maxTurnAng;
 	break;
 	case "controller":
 	var key_up =	gamepad_button_value(0, gp_shoulderrb);
-	var key_left =  gamepad_axis_value(0, gp_axislh);
+	var key_left =  -gamepad_axis_value(0, gp_axislh);
 	var key_down =  gamepad_button_value(0, gp_shoulderlb);
 	var key_right = 0;
 	var key_dump =  gamepad_button_check(0, gp_face1);
-	x_axis = (key_right - key_left);
-	y_axis = (key_down - key_up);
-	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
-	targTurnAng = x_axis * maxTurnAng;
 	break;
 }
 #endregion
 //interpret input
+	x_axis = (-key_right + key_left);
+	y_axis = (key_down - key_up);
+	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
+	targTurnAng = x_axis * maxTurnAng;
 turnAng = lerp(turnAng, targTurnAng, 0.25); 
 
 //if no buttons are pressed, lerp any movement back to 0

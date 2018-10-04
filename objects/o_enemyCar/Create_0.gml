@@ -4,7 +4,6 @@ turnAng = 0;
 maxTurnAng = 6;
 is3d = true;
 image_speed = 0;
-global.control_scheme = "controller";
 vel = 0;
 maxvel = 12;
 accel = 0.2;

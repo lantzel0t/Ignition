@@ -335,27 +335,11 @@
             }
         },
         {
-            "Key": "ada72f8a-3124-48e2-b194-f2e1983b9c78",
-            "Value": {
-                "id": "0f6f903d-56d4-48d5-83b9-894914e1580b",
-                "resourcePath": "datafiles_yy\\Instructions.pdf.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "b6a241d3-9044-45ea-9d96-0fc900027ffe",
             "Value": {
                 "id": "0e2f6703-948b-41cd-814b-d9200c8b27c5",
                 "resourcePath": "sprites\\s_car\\s_car.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "c345a45c-a6c3-4bd8-9914-690ce4d1fbb5",
-            "Value": {
-                "id": "400ba2fe-20f6-4d89-bd71-26718dd09cd5",
-                "resourcePath": "scripts\\trail_calculate\\trail_calculate.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -473,7 +457,6 @@
         "e8bafd5a-e8ac-404a-a8cd-7bab76287e53",
         "16950ec7-8330-40b6-bffe-25a485ea2669",
         "5e3a2cdf-d061-45a0-a255-001c9fcff612",
-        "c345a45c-a6c3-4bd8-9914-690ce4d1fbb5",
         "14ce5ba9-683d-4dfd-9b0b-11810e0274cc"
     ],
     "tutorial": ""

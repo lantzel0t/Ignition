@@ -1,17 +1,16 @@
 #region controls
-//if (point_direction(x,y, o_pathfollow.x, o_pathfollow.y) > -playerAng + 180)
-//{
-//	x_axis = 1;
-//} else if (point_direction(x,y, o_pathfollow.x, o_pathfollow.y) < -playerAng + 180)
-//{
-//	x_axis = -1;
-//} else
-//{
-//	x_axis = 0;
-//}
-playerAng = point_direction(x,y, o_pathfollow.x, o_pathfollow.y) - 90;
-	y_axis = -1;
+if (point_direction(x,y, o_pathfollow.x, o_pathfollow.y) > playerAng)
+{
+	x_axis = 1;
+} else if (point_direction(x,y, o_pathfollow.x, o_pathfollow.y) < playerAng)
+{
+	x_axis = -1;
+} else
+{
 	x_axis = 0;
+}
+//playerAng = point_direction(x,y, o_pathfollow.x, o_pathfollow.y) - 90;
+	y_axis = -1;
 	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
 	targTurnAng = x_axis * maxTurnAng;	
 #endregion
