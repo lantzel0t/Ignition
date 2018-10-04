@@ -159,14 +159,6 @@
             }
         },
         {
-            "Key": "2a6cde5f-cffa-46fa-9359-f2b65b155b9d",
-            "Value": {
-                "id": "4fe54650-5dfa-4da9-9c4a-5c4f44cf05fb",
-                "resourcePath": "extensions\\Draw_Trail\\Draw_Trail.yy",
-                "resourceType": "GMExtension"
-            }
-        },
-        {
             "Key": "3861d815-3e2f-4dae-b950-5954f4cb9058",
             "Value": {
                 "id": "2b32fe19-933e-49da-bfd4-99bc0e1305f4",
