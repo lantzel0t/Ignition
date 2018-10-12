@@ -1,4 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-instance_destroy();
+if (image_xscale > 0.9 && place_meeting(x, y, o_gasLit))
+{
+	instance_create_depth(x,y, depth - 1, o_gasLit);
+	instance_destroy();
+}
+alarm[0] = 5;

@@ -1,1 +1,1 @@
-image_angle = global._viewang + init_angle;
+image_angle = init_angle;

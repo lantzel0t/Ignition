@@ -20,10 +20,14 @@ switch (global.control_scheme)
 #endregion
 //interpret input
 	x_axis = (-key_right + key_left);
-	y_axis = (key_down - key_up);
-	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
+	if (global.pfuel > 0)
+	{
+		y_axis = (key_down - key_up);
+		global.pfuel -= 1 + (abs(vel) / 6);
+	} else y_axis = 0;
+	vel = clamp(vel - (y_axis * accel), -maxvel / 2, maxvel);
 	targTurnAng = x_axis * maxTurnAng;
-turnAng = lerp(turnAng, targTurnAng, 0.25); 
+	turnAng = lerp(turnAng, targTurnAng, 0.25); 
 
 //if no buttons are pressed, lerp any movement back to 0
 if (x_axis == 0)
@@ -37,7 +41,7 @@ if (y_axis == 0)
 //if moving forward, add wheel rotation
 if (y_axis != 0)
 {
-	//playerAng += turnAng;
+	//image_angle += turnAng;
 }
 //move car based on velocity
 calculate_movement_and_collision();
@@ -46,12 +50,12 @@ calculate_movement_and_collision();
 if (vel > 0.1)
 {
 	//turnAng = clamp(turnAng - (0.5 * x_axis), -maxTurnAng, maxTurnAng);
-	playerAng += turnAng * (abs(vel) / maxvel);
+	image_angle += turnAng * (abs(vel) / maxvel);
 }
 else if (vel < -0.1)
 {
 	
-	playerAng -= turnAng * (abs(vel) / maxvel);
+	image_angle -= turnAng * (abs(vel) / maxvel);
 }
 
   //when not turning, sets wheels forward
@@ -59,26 +63,31 @@ if (x_axis == 0)
 {
 	//clamp(turnAng + 0.2, -maxTurnAng, maxTurnAng);
 }
-if (abs(playerAng) > 360)
+if (abs(image_angle) > 360)
 {
-	playerAng = 0;
+	image_angle -= 360 * sign(image_angle);
 }
-image_angle = global._viewang + playerAng;
+image_angle = image_angle;
+
 
 //dump fuel
-if (key_dump && alarm[0] == -1)
+if (key_dump && alarm[0] == -1 && global.pfuel > 30)
 {
 	alarm[0] = 2;
+	global.pfuel -= 30;
 }
-
+if(place_meeting(x, y, o_refuel))
+{
+	global.pfuel = clamp(global.pfuel + 100, 0, 10000);
+}
 //wheel math!
-var sinPlayerAng = sin(degtorad(playerAng + 90));
-var cosPlayerAng = cos(degtorad(playerAng + 90));
+var sinPlayerAng = sin(degtorad(image_angle + 90));
+var cosPlayerAng = cos(degtorad(image_angle + 90));
 leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
 rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
-wheelAngle = playerAng + radtodeg(turnAng/10);
+wheelAngle = image_angle + radtodeg(turnAng/10);
 
 skid_sys = part_system_create();
 skid_emitter = part_emitter_create(skid_sys);
@@ -88,5 +97,5 @@ part_type_alpha1(skid, 0.3);
 part_type_life(skid, 20, 20)
 //part_particles_create(skid_sys, x + leftWheelX, y + leftWheelY, skid, 1);
 //part_particles_create(skid_sys, x + rightWheelX, y + rightWheelY, skid, 1);
-//part_particles_create(skid_sys, x + (cosPlayerAng * distancetoWheel), y + (sinPlayerAng * distancetoWheel), skid, 1);
+//part_particles_create(skid_sys, x + (cosimage_angle * distancetoWheel), y + (sinimage_angle * distancetoWheel), skid, 1);
 //part_particles_create(skid_sys, x + (cosPlayerAng * -distancetoWheel), y + (sinPlayerAng * -distancetoWheel), skid, 1);

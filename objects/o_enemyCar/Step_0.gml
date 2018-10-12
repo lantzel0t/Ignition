@@ -1,16 +1,22 @@
 #region controls
-if (point_direction(x,y, o_pathfollow.x, o_pathfollow.y) > playerAng)
+if (point_direction(x,y, global.target.x, global.target.y) - 90 > playerAng)
 {
 	x_axis = 1;
-} else if (point_direction(x,y, o_pathfollow.x, o_pathfollow.y) < playerAng)
+} else if (point_direction(x,y, global.target.x, global.target.y) - 90 < playerAng)
 {
 	x_axis = -1;
 } else
 {
 	x_axis = 0;
 }
+
 //playerAng = point_direction(x,y, o_pathfollow.x, o_pathfollow.y) - 90;
 	y_axis = -1;
+	if (dead)
+	{
+		x_axis = 0;
+		y_axis = 0;
+	}
 	vel = clamp(vel - (y_axis * accel), -maxvel, maxvel);
 	targTurnAng = x_axis * maxTurnAng;	
 #endregion
@@ -32,6 +38,12 @@ if (y_axis != 0)
 	//playerAng += turnAng;
 }
 //move car based on velocity
+if (dead) 
+{
+	image_blend = c_gray;
+	image_alpha -= 0.01;
+}
+if (image_alpha < 0) instance_destroy();
 calculate_movement_and_collision();
 
 //turns the wheelies
@@ -51,11 +63,22 @@ if (x_axis == 0)
 {
 	//clamp(turnAng + 0.2, -maxTurnAng, maxTurnAng);
 }
-if (abs(playerAng) > 360)
+if (playerAng > 360)
 {
-	playerAng = 0;
+	playerAng -= 360;
 }
-image_angle = global._viewang + playerAng;
+if (playerAng < -360)
+{
+	playerAng += 360;
+}
+image_angle = playerAng;
+
+	if (place_meeting(x,y,o_gasLit))
+	{
+		dead = true;
+		alarm[0] = 20;
+	}
+
 
 //wheel math!
 var sinPlayerAng = sin(degtorad(playerAng + 90));
