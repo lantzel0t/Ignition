@@ -17,5 +17,5 @@ leftWheelY = 0;
 rightWheelX = 0;
 rightWheelY = 0;
 trail_init();
-global.target = o_player;
+global.target = o_pathfollow;
 dead = false;

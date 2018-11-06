@@ -19,3 +19,15 @@ rightWheelX = 0;
 rightWheelY = 0;
 global.pfuel = 10000;
 trail_init();
+//create_textevent("Test!", -1);
+
+reset_dialogue_defaults();
+myPortrait			= link;
+myVoice				= snd_voice2;
+myFont				= NeoSans;
+myName				= "Green";
+
+myPortraitTalk		= link;
+myPortraitTalk_x	= 26;
+myPortraitTalk_y	= 44;
+myPortraitIdle		= link;

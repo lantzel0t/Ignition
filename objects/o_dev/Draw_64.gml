@@ -3,20 +3,18 @@
 switch (counter)
 {
 	case 0:
-		draw_text(100, 100, "Controls:\nGas Pedal - Right trigger\n"
-			+ "Brake/Reverse - Left trigger\nSteer - Left Joystick\n"
-			+ "Rotate Cam - Top buttons\nDrop Fuel - A");
+		//draw_sprite_ext(startSlide, 0, 0, 0, 2.3, 2.3, 0, c_white, 1);
 	break;
 	case 1:
-		draw_text(100, 100, "Milestones:\n-Source Control\n-Basic controls for keyboard and controller"
-		+ "\n-'Backbone' mechanic prototyped\n-Enemy character AI\n-Fuel gauge");
+		//draw_sprite_ext(slide, 0, 0, 0, 1.41, 1.41, 0, c_white, 1);
+		//draw_text(500, 500, "Midterm week got to us, so we \nwere unable to make any progress.");
 	break;
 	case 2:
 		//game design behind gas
-		draw_text(100, 100, "The 'backbone' mechanic");
-		draw_sprite(link, 0, 150, 150);
+		//draw_text(100, 100, "The 'backbone' mechanic");
+		//draw_sprite(link, 0, 150, 150);
 	break;
 	default:
 	break;
 }
-draw_text(window_get_width(), 20, "DEVBUILD");
+//draw_text(window_get_width(), 20, "DEVBUILD");
