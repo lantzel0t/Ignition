@@ -44,7 +44,7 @@ if (dead)
 	image_alpha -= 0.01;
 }
 if (image_alpha < 0) instance_destroy();
-calculate_movement_and_collision();
+calculate_movement_and_collision(vel, image_angle);
 
 //turns the wheelies
 if (vel > 0.1)

@@ -44,7 +44,7 @@ if (y_axis != 0)
 	//image_angle += turnAng;
 }
 //move car based on velocity
-calculate_movement_and_collision();
+calculate_movement_and_collision(vel, image_angle);
 
 //turns the wheelies
 if (vel > 0.1)
