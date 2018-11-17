@@ -1,10 +1,8 @@
 ///calculate_movement_and_collision(velocity, direction)
 
 var dir = argument[1];
-
-if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o_wall)
-	&& !place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o_enemyCar)
-	&& !place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o_player))
+var anglefound = false;
+if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o_collidable3d))
 {
 	x += sin(degtorad(dir)) * vel;
 	y += cos(degtorad(dir)) * vel;
@@ -18,14 +16,19 @@ if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o
 			var angle_check = dir - 90 + angle * mult;
 			var xtarg = x + lengthdir_x(vel, angle_check);
 			var ytarg = y + lengthdir_y(vel, angle_check);
-			if (!place_meeting(xtarg, ytarg, o_wall))
+			if (!place_meeting(xtarg, ytarg, o_collidable3d))
 			{
 				x = xtarg;
 				y = ytarg;
 				vel /= 1.05;
+				anglefound = true;
 				exit;
 			}
 		}
 	}
+	if (!anglefound && abs(vel) > 2)
+	{
+		vel = -vel / 2;	
+	} else vel = 0;
 }
 //else vel = -vel;

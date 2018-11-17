@@ -1,10 +1,13 @@
 #region controls
-if (point_direction(x,y, global.target.x, global.target.y) - 90 > playerAng)
-{
-	x_axis = 1;
-} else if (point_direction(x,y, global.target.x, global.target.y) - 90 < playerAng)
+var source = point_direction(x,y, global.target.x, global.target.y);
+if ((source < image_angle && (image_angle - source < 180)) ||
+	(image_angle < source && (source - image_angle > 180)))
 {
 	x_axis = -1;
+} else if ((image_angle < source && (source - image_angle < 180)) ||
+	(source < image_angle && (image_angle - source > 180)))
+{
+	x_axis = 1;
 } else
 {
 	x_axis = 0;
@@ -44,7 +47,7 @@ if (dead)
 	image_alpha -= 0.01;
 }
 if (image_alpha < 0) instance_destroy();
-calculate_movement_and_collision(vel, image_angle);
+calculate_movement_and_collision(vel, image_angle + 90);
 
 //turns the wheelies
 if (vel > 0.1)
@@ -67,7 +70,7 @@ if (playerAng > 360)
 {
 	playerAng -= 360;
 }
-if (playerAng < -360)
+if (playerAng < 0)
 {
 	playerAng += 360;
 }
@@ -81,8 +84,8 @@ image_angle = playerAng;
 
 
 //wheel math!
-var sinPlayerAng = sin(degtorad(playerAng + 90));
-var cosPlayerAng = cos(degtorad(playerAng + 90));
+var sinPlayerAng = sin(degtorad(playerAng));
+var cosPlayerAng = cos(degtorad(playerAng));
 leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
