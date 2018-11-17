@@ -19,32 +19,32 @@ switch (global.control_scheme)
 }
 #endregion
 //interpret input
-	x_axis = (-key_right + key_left);
+	y_axis = (-key_right + key_left);
 	if (global.pfuel > 0)
 	{
-		y_axis = (key_down - key_up);
+		x_axis = (key_down - key_up);
 		global.pfuel -= 1 + (abs(vel) / 6);
 	} else y_axis = 0;
-	vel = clamp(vel - (y_axis * accel), -maxvel / 2, maxvel);
-	targTurnAng = x_axis * maxTurnAng;
+	vel = clamp(vel - (x_axis * accel), -maxvel / 2, maxvel);
+	targTurnAng = y_axis * maxTurnAng;
 	turnAng = lerp(turnAng, targTurnAng, 0.25); 
 
 //if no buttons are pressed, lerp any movement back to 0
-if (x_axis == 0)
+if (y_axis == 0)
 {
 	turnAng = lerp(turnAng, 0, 0.5);
 }
-if (y_axis == 0)
+if (x_axis == 0)
 {
 	vel = lerp(vel, 0, fric);	
 }
 //if moving forward, add wheel rotation
-if (y_axis != 0)
+if (x_axis != 0)
 {
 	//image_angle += turnAng;
 }
 //move car based on velocity
-calculate_movement_and_collision(vel, image_angle);
+calculate_movement_and_collision(vel, image_angle + 90);
 
 //turns the wheelies
 if (vel > 0.1)
@@ -81,8 +81,8 @@ if(place_meeting(x, y, o_refuel))
 	global.pfuel = clamp(global.pfuel + 100, 0, 10000);
 }
 //wheel math!
-var sinPlayerAng = sin(degtorad(image_angle + 90));
-var cosPlayerAng = cos(degtorad(image_angle + 90));
+var sinPlayerAng = sin(degtorad(image_angle));
+var cosPlayerAng = cos(degtorad(image_angle));
 leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);

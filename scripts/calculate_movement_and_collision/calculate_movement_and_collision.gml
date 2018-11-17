@@ -11,7 +11,7 @@ if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o
 } else
 {
 	var sweep_interval = 10;
-	for (var angle = sweep_interval; angle <= 40; angle += sweep_interval)
+	for (var angle = sweep_interval; angle <= 50; angle += sweep_interval)
 	{
 		for (var mult = -1; mult <= 1; mult += 2)
 		{
@@ -22,7 +22,7 @@ if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o
 			{
 				x = xtarg;
 				y = ytarg;
-				vel /= 2;
+				vel /= 1.05;
 				exit;
 			}
 		}
