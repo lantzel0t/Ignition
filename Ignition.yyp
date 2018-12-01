@@ -583,6 +583,14 @@
             }
         },
         {
+            "Key": "851440b4-7296-41bd-9d66-7030fa5b34d1",
+            "Value": {
+                "id": "8b15a351-3eb3-45df-b049-06dcc3adbb48",
+                "resourcePath": "objects\\o_particles\\o_particles.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8b911951-51a0-4980-acd4-7961a4afae65",
             "Value": {
                 "id": "4b5dc956-c045-4ac8-8da5-516a1f7c367c",

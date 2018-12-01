@@ -1,23 +1,23 @@
 {
-    "id": "decd741a-99c8-4378-a8d6-4f811844cab6",
+    "id": "851440b4-7296-41bd-9d66-7030fa5b34d1",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_rock1",
+    "name": "o_particles",
     "eventList": [
         {
-            "id": "7b84fb1a-f42a-4b10-81d6-28c32b598f49",
+            "id": "2209d41f-cd4f-4456-8546-68712f33ee4f",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "decd741a-99c8-4378-a8d6-4f811844cab6"
+            "enumb": 2,
+            "eventtype": 7,
+            "m_owner": "851440b4-7296-41bd-9d66-7030fa5b34d1"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "ed084c58-1057-4f7b-8149-96596327d685",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -33,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "744578ed-d1b2-49b6-a125-97822b37a28c",
+    "spriteId": "00000000-0000-0000-0000-000000000000",
     "visible": true
 }

@@ -36,11 +36,11 @@ if (keyboard_check(ord("X")))
 }
 if (keyboard_check(ord("C")))
 {
-	camera_set_view_size(view_camera[0], camera_get_view_width(view_camera[0]) - 5, camera_get_view_height(view_camera[0]) - 5);
+	camera_set_view_size(view_camera[0], camera_get_view_width(view_camera[0]) * 1.01, camera_get_view_height(view_camera[0]) * 1.01);
 }
 if (keyboard_check(ord("V")))
 {
-		camera_set_view_size(view_camera[0], camera_get_view_width(view_camera[0]) + 5, camera_get_view_height(view_camera[0]) + 5);
+		camera_set_view_size(view_camera[0], camera_get_view_width(view_camera[0]) * 0.99, camera_get_view_height(view_camera[0]) * 0.99);
 }
 #endregion
 

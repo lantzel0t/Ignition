@@ -20,7 +20,8 @@ if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o
 			{
 				x = xtarg;
 				y = ytarg;
-				vel /= 1.05;
+				vel /= 1.08;
+				image_angle += mult;
 				anglefound = true;
 				exit;
 			}

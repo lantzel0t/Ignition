@@ -24,7 +24,7 @@ switch (global.control_scheme)
 	{
 		x_axis = (key_down - key_up);
 		global.pfuel -= 1 + (abs(vel) / 6);
-	} else y_axis = 0;
+	} else x_axis = 0;
 	vel = clamp(vel - (x_axis * accel), -maxvel / 2, maxvel);
 	targTurnAng = y_axis * maxTurnAng;
 	turnAng = lerp(turnAng, targTurnAng, 0.25); 
@@ -87,15 +87,11 @@ leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
 rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
+
+backWheelX = (sinPlayerAng * distancetoWheel);
+backWheelY = (cosPlayerAng * distancetoWheel);
+
+pipeX = (cosPlayerAng * -6) + (sinPlayerAng * 6);
+pipeY = (-sinPlayerAng * -6) + (cosPlayerAng * 6);
 wheelAngle = image_angle + radtodeg(turnAng/10);
 
-skid_sys = part_system_create();
-skid_emitter = part_emitter_create(skid_sys);
-skid = part_type_create();
-part_type_scale(skid, 6, 6);
-part_type_alpha1(skid, 0.3);
-part_type_life(skid, 20, 20)
-//part_particles_create(skid_sys, x + leftWheelX, y + leftWheelY, skid, 1);
-//part_particles_create(skid_sys, x + rightWheelX, y + rightWheelY, skid, 1);
-//part_particles_create(skid_sys, x + (cosimage_angle * distancetoWheel), y + (sinimage_angle * distancetoWheel), skid, 1);
-//part_particles_create(skid_sys, x + (cosPlayerAng * -distancetoWheel), y + (sinPlayerAng * -distancetoWheel), skid, 1);

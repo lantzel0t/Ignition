@@ -90,6 +90,8 @@ leftWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * distancetoWheel);
 leftWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * distancetoWheel);
 rightWheelY = (-sinPlayerAng * frontAxle) + (cosPlayerAng * -distancetoWheel);
 rightWheelX = (cosPlayerAng * frontAxle) + (sinPlayerAng * -distancetoWheel);
+pipeX = (cosPlayerAng * -6) + (sinPlayerAng * 6);
+pipeY = (-sinPlayerAng * -6) + (cosPlayerAng * 6);
 wheelAngle = playerAng + radtodeg(turnAng/10);
 
 skid_sys = part_system_create();
