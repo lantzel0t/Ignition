@@ -1,0 +1,4 @@
+Converting GML script: ${project_dir}\objects\obj_perlin_noise_test\Step_0.gml
+ERROR: C:\Users\cnnrl\Documents\GameMakerStudio2\Ignition\objects\obj_perlin_noise_test\Step_0.gml - 45: number of arguments expected 0 got 2
+ERROR: C:\Users\cnnrl\Documents\GameMakerStudio2\Ignition\objects\obj_perlin_noise_test\Step_0.gml - 48: unexpected syntax error
+Too many errors - GML not processed : ${project_dir}\objects\obj_perlin_noise_test\Step_0.gml

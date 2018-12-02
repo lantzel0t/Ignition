@@ -6,11 +6,10 @@ image_xscale = lerp(image_xscale, 1, 0.1);
 image_yscale = image_xscale;
 } 
 
-if (image_xscale > 0.9 && collision_point(x,y,o_player,false,true))
+if (image_xscale > 0.9 && collision_point(x,y,o_player,false,true) || collision_point(x,y,o_enemyCar2,false,true))
 {
 	instance_create_depth(x,y, depth - 1, o_gasLit);
-	part_system_depth(global.P_System, depth - 10000);
-	part_particles_create(global.P_System, x, y, global.Part_fburst, 20);
+	part_particles_create(global.PS_high, x, y, global.Part_fburst, 20);
 	instance_destroy();
 }
 life++;

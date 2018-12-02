@@ -2,6 +2,9 @@
 global.PS_ground = part_system_create();
 global.PS_low = part_system_create();
 global.PS_high = part_system_create();
+part_system_depth(global.PS_ground, 1000);
+part_system_depth(global.PS_low, 200);
+part_system_depth(global.PS_high, -1000);
 
 #region smoke
 //global.PE_smoke = part_emitter_create(global.P_System);
@@ -66,13 +69,13 @@ part_type_life(global.Part_plant, 1, 40);
 #region flameBurst
 global.Part_fburst = part_type_create();
 part_type_shape(global.Part_fburst,pt_shape_pixel);
-//part_type_size(global.Part_fburst, 0.5, 1, -0.05, 0);
+part_type_size(global.Part_fburst, 1, 4, -0.05, 0);
 part_type_scale(global.Part_fburst, 8, 8);
-//part_type_color2(global.Part_rock,c_dkgray, c_ltgray);
+part_type_color2(global.Part_fburst,c_red, c_orange);
 part_type_alpha1(global.Part_fburst, 1);
-//part_type_speed(global.Part_fburst, 1, 2, -0.2,0);
+part_type_speed(global.Part_fburst, 1, 2, -0.2,0);
 part_type_orientation(global.Part_fburst, 0, 359, 0, 0, 1);
-//part_type_direction(global.Part_fburst, 0, 359, 0, 0);
-//part_type_speed(global.Part_fburst, 3, 5, -0.4, 0);
+part_type_direction(global.Part_fburst, 0, 359, 0, 0);
+part_type_speed(global.Part_fburst, 3, 5, -0.4, 0);
 part_type_life(global.Part_fburst, 400, 400);
 #endregion

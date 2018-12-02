@@ -1,0 +1,23 @@
+Converting GML script: ${project_dir}\scripts\PN_1D_noise\PN_1D_noise.gml
+Converted description /// @description PN_1D_noise(x, seed)/// @param x
+/// @param  seed
+
+Converting GML script: ${project_dir}\scripts\PN_1D_smoothedNoise\PN_1D_smoothedNoise.gml
+Converted description /// @description PN_1D_smoothedNoise(x, seed, wavelength, scale)/// @param x
+/// @param  seed
+/// @param  wavelength
+/// @param  scale
+
+Converting GML script: ${project_dir}\scripts\PN_1D_interpolatedNoise\PN_1D_interpolatedNoise.gml
+Converted description /// @description PN_1D_interpolatedNoise(x, seed, wavelength, scale)/// @param x
+/// @param  seed
+/// @param  wavelength
+/// @param  scale
+
+Converting GML script: ${project_dir}\scripts\PN_1D_perlinNoise\PN_1D_perlinNoise.gml
+Converted description /// @description PN_1D_perlinNoise(x, seed, persistence, octaves, wavelength, scale)/// @param x
+/// @param  seed
+/// @param  persistence
+/// @param  octaves
+/// @param  wavelength
+/// @param  scale

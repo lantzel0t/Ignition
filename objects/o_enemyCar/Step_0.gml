@@ -76,10 +76,12 @@ if (playerAng < 0)
 }
 image_angle = playerAng;
 
-	if (place_meeting(x,y,o_gasLit))
+	if (place_meeting(x,y,o_gasLit) && !dead)
 	{
 		dead = true;
+		global.enemies--;
 		alarm[0] = 20;
+		//instance_destroy();
 	}
 
 

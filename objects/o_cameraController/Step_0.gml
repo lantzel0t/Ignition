@@ -48,8 +48,8 @@ if (keyboard_check(ord("V")))
 #endregion
 
 shake = power(trauma, 2);
-var shakeX = maxShake * shake * random_range(-1, 1);
-var shakeY = maxShake * shake * random_range(-1, 1);
+var shakeX = maxShake * shake * PN_1D_perlinNoise(delta_time, 1, 1, 1, 1, 1);
+var shakeY = maxShake * shake * PN_1D_perlinNoise(delta_time, 1, 1, 1, 1, 1);
 camera_set_view_pos(view_camera[0],
 	x - (camera_get_view_width(view_camera[0]) / 2) + shakeX,
 	y - (camera_get_view_height(view_camera[0]) / 2) + shakeY);
