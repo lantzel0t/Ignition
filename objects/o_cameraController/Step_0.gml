@@ -15,6 +15,9 @@ camera_set_view_angle(view_camera[0], -global._viewang);
 global._viewang += _camspeed;
 global._viewx = sin(degtorad(global._viewang));
 global._viewy = cos(degtorad(global._viewang));
+x = lerp(x, o_player.x, 0.2);
+y = lerp(y, o_player.y, 0.2);
+
 
 #region debug controls
 if (key_camL && _camspeed < _maxcamspeed)
@@ -44,6 +47,13 @@ if (keyboard_check(ord("V")))
 }
 #endregion
 
+shake = power(trauma, 2);
+var shakeX = maxShake * shake * random_range(-1, 1);
+var shakeY = maxShake * shake * random_range(-1, 1);
+camera_set_view_pos(view_camera[0],
+	x - (camera_get_view_width(view_camera[0]) / 2) + shakeX,
+	y - (camera_get_view_height(view_camera[0]) / 2) + shakeY);
+trauma = clamp(trauma - 0.01, 0, 1);
 //camera friction
 if (_camspeed > 0)
 {

@@ -7,7 +7,9 @@ if (vel > 1) {
 	part_particles_create(global.P_System, x + leftWheelX, y + leftWheelY, global.Part_dust, 6);
 	part_particles_create(global.P_System, x + rightWheelX, y + rightWheelY, global.Part_dust, 6);
 }
-part_particles_create(global.P_System, x + pipeX, y + pipeY, global.Part_smoke, 4);
+
+	part_particles_create(global.P_System, x + pipeX, y + pipeY, global.Part_smoke, 4);
+
 draw_3d(s_wheel, x + leftWheelX, y + leftWheelY, wheelAngle);
 draw_3d(s_wheel, x + rightWheelX, y + rightWheelY, wheelAngle);
 //draw_text(x, y + 20, string(point_direction(x,y, o_pathfollow.x, o_pathfollow.y) - 90));

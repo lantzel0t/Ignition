@@ -20,6 +20,9 @@ if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o
 			{
 				x = xtarg;
 				y = ytarg;
+				if (object_index == o_player && o_cameraController.trauma < 0.2) {
+					addTrauma(0.05);
+				}
 				vel /= 1.08;
 				image_angle += mult;
 				anglefound = true;
@@ -29,6 +32,9 @@ if (!place_meeting(x + sin(degtorad(dir)) * vel, y + cos(degtorad(dir)) * vel, o
 	}
 	if (!anglefound && abs(vel) > 2)
 	{
+		if (object_index == o_player) {
+			addTrauma(abs(vel) * 0.03);
+		}
 		vel = -vel / 2;	
 	} else vel = 0;
 }

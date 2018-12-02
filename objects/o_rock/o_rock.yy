@@ -2,7 +2,7 @@
     "id": "decd741a-99c8-4378-a8d6-4f811844cab6",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_rock1",
+    "name": "o_rock",
     "eventList": [
         {
             "id": "7b84fb1a-f42a-4b10-81d6-28c32b598f49",

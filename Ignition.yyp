@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "19cff77b-7f21-4cf5-a0de-3d3a8ec43efd",
+            "Value": {
+                "id": "e7270187-4afe-48f6-a1e8-f41f46a81b8a",
+                "resourcePath": "scripts\\setTrauma\\setTrauma.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1b66cb04-0105-4a02-a252-900cb5b1b1b5",
             "Value": {
                 "id": "b06f2bcb-20e3-41c3-8058-fd660b74cfa0",
@@ -203,6 +211,14 @@
             "Value": {
                 "id": "83895ec6-62ef-433e-a057-c5df1d8083f4",
                 "resourcePath": "objects\\obj_camera\\obj_camera.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "1d877283-f4dd-4945-9f09-a4a4da33443d",
+            "Value": {
+                "id": "ca12ac16-5758-49c8-9ce3-a4bf6732b716",
+                "resourcePath": "objects\\o_cactus\\o_cactus.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -276,6 +292,14 @@
                 "id": "fc74a694-6bb5-4f89-bb16-dfa67b08615a",
                 "resourcePath": "objects\\obj_examplechar\\obj_examplechar.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "31950799-9e63-401b-9866-432a0181cd7e",
+            "Value": {
+                "id": "7d9fb543-b99f-4e16-a43c-556f7d59085c",
+                "resourcePath": "scripts\\addTrauma\\addTrauma.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -823,6 +847,14 @@
             }
         },
         {
+            "Key": "d72a39b7-470f-4a51-a98d-7dcd95819f8f",
+            "Value": {
+                "id": "a9a046c8-aca3-4d4c-a09b-23073ead6d82",
+                "resourcePath": "sprites\\s_cactus1\\s_cactus1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "da5ec2fd-8c64-4f0d-a2b6-e1dab7c8f5f8",
             "Value": {
                 "id": "2abeb10a-7076-4a95-ba5c-0b4a168771a4",
@@ -850,7 +882,7 @@
             "Key": "decd741a-99c8-4378-a8d6-4f811844cab6",
             "Value": {
                 "id": "480e9f8c-a37b-4152-9c43-5dd317892751",
-                "resourcePath": "objects\\o_rock1\\o_rock1.yy",
+                "resourcePath": "objects\\o_rock\\o_rock.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -970,6 +1002,8 @@
         "16950ec7-8330-40b6-bffe-25a485ea2669",
         "5e3a2cdf-d061-45a0-a255-001c9fcff612",
         "14ce5ba9-683d-4dfd-9b0b-11810e0274cc",
+        "31950799-9e63-401b-9866-432a0181cd7e",
+        "19cff77b-7f21-4cf5-a0de-3d3a8ec43efd",
         "3617c53b-fbad-41c1-b107-7ab92fa8aaca",
         "8c296651-c031-4b1f-bd69-0a6b58852c62",
         "22c57393-d17c-4500-b428-2d67f27d9725",

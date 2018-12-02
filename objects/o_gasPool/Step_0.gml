@@ -9,6 +9,8 @@ image_yscale = image_xscale;
 if (image_xscale > 0.9 && collision_point(x,y,o_player,false,true))
 {
 	instance_create_depth(x,y, depth - 1, o_gasLit);
+	part_system_depth(global.P_System, depth - 10000);
+	part_particles_create(global.P_System, x, y, global.Part_fburst, 20);
 	instance_destroy();
 }
 life++;

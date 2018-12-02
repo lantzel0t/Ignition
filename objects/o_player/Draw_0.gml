@@ -10,7 +10,9 @@ if (vel > 2) {
 	part_particles_create(global.P_System, x + backWheelX, y + backWheelY, global.Part_dust, 2);
 	part_particles_create(global.P_System, x - backWheelX, y - backWheelY, global.Part_dust, 2);
 }
-part_particles_create(global.P_System, x + pipeX, y + pipeY, global.Part_smoke, 4);
+if (global.pfuel > 100) {
+	part_particles_create(global.P_System, x + pipeX, y + pipeY, global.Part_smoke, 4);
+}
 draw_3d(s_wheel, x + leftWheelX, y + leftWheelY, wheelAngle);
 draw_3d(s_wheel, x + rightWheelX, y + rightWheelY, wheelAngle);
 
