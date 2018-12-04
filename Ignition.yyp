@@ -279,6 +279,14 @@
             }
         },
         {
+            "Key": "28c00510-33bf-45d0-aa81-72b99f1db658",
+            "Value": {
+                "id": "c0a0d6f5-e200-4d18-b7b8-bd358ff546ea",
+                "resourcePath": "scripts\\subtract_health\\subtract_health.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2952d4db-f180-42d9-b661-2c6aaaf1d954",
             "Value": {
                 "id": "f049d3f2-b989-4891-bf8b-35de2442b114",
@@ -719,6 +727,14 @@
             }
         },
         {
+            "Key": "95b08f3e-2efc-4d1b-91d3-16175b8a46f9",
+            "Value": {
+                "id": "834eb3d8-ea63-46ae-a545-5b3f03b247be",
+                "resourcePath": "objects\\o_enemySpawner\\o_enemySpawner.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "96c97222-e5aa-4118-b7b3-226fc1d3b3ed",
             "Value": {
                 "id": "23fd701c-e1d8-4ba8-bf83-6412366dc8a2",
@@ -1068,6 +1084,7 @@
         "14ce5ba9-683d-4dfd-9b0b-11810e0274cc",
         "31950799-9e63-401b-9866-432a0181cd7e",
         "19cff77b-7f21-4cf5-a0de-3d3a8ec43efd",
+        "28c00510-33bf-45d0-aa81-72b99f1db658",
         "3d96cb3c-a61e-4664-9760-7cb2b5fc8185",
         "78f8a4b9-16c9-4109-8c60-99c21aaa5929",
         "7bce1d32-cf26-479c-a77a-8f5b7d5ec425",

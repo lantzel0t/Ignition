@@ -17,8 +17,9 @@ global._viewx = sin(degtorad(global._viewang));
 global._viewy = cos(degtorad(global._viewang));
 x = lerp(x, o_player.x, 0.2);
 y = lerp(y, o_player.y, 0.2);
-
-
+if (global.dynCam) {
+global._viewang = lerp(global._viewang, o_player.image_angle, 0.005);
+}
 #region debug controls
 if (key_camL && _camspeed < _maxcamspeed)
 {
@@ -48,8 +49,20 @@ if (keyboard_check(ord("V")))
 #endregion
 
 shake = power(trauma, 2);
-var shakeX = maxShake * shake * PN_1D_perlinNoise(delta_time, 1, 1, 1, 1, 1);
-var shakeY = maxShake * shake * PN_1D_perlinNoise(delta_time, 1, 1, 1, 1, 1);
+var noise = 0;
+var noise2 = 0;
+if (global.rand) {
+	noise = random_range(-1, 1);
+	noise2 = random_range(-1, 1);
+} else {
+	noise = PN_1D_perlinNoise(delta_time, 1, 1, 1, 1, 1);
+	noise2 = PN_1D_perlinNoise(delta_time * 2, 1, 1, 1, 1, 1);
+}
+if (shake > 0) {
+	gamepad_set_vibration(0, 1, 1);
+} else gamepad_set_vibration(0, 0, 0);
+var shakeX = global.maxShake * shake * noise;
+var shakeY = global.maxShake * shake * noise2;
 camera_set_view_pos(view_camera[0],
 	x - (camera_get_view_width(view_camera[0]) / 2) + shakeX,
 	y - (camera_get_view_height(view_camera[0]) / 2) + shakeY);
@@ -68,6 +81,6 @@ else if (_camspeed < 0)
 //this prevents the angle from becoming huge
 if (abs(global._viewang) > 360)
 {
-	global._viewang = 0;
+	global._viewang -= 360;
 }
 	

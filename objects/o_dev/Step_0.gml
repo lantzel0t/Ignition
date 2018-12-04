@@ -4,17 +4,38 @@ if(keyboard_check_pressed(ord("R")))
 {
 	if (instance_exists(o_player))
 	{
-		instance_destroy(o_player);
+		o_player.x += 100;
 	}
-	instance_create_depth(x, y, 100, o_player);
 }
 if(keyboard_check_pressed(ord("L")))
 {
-	instance_create_depth(random_range(0, room_width), random_range(0, room_height), 100, o_enemyCar);
+	instance_create_layer(900, 2200, "Instances", o_enemyCar);
 }
-if(keyboard_check_pressed(ord("T")))
+if(keyboard_check(ord("T")))
 {
-	debug = !debug;
+	//debug = !debug;
+	global.maxShake = clamp(global.maxShake - 0.5, 0, 100);
+}
+if(keyboard_check(ord("Y")))
+{
+	global.maxShake = clamp(global.maxShake + 0.5, 0, 100);
+}
+if(keyboard_check_pressed(ord("U")))
+{
+	global.maxShake = 30;
+	addTrauma(0.1);
+}
+if(keyboard_check(ord("I")))
+{
+	addTrauma(1);
+}
+if(keyboard_check_pressed(ord("O")))
+{
+	global.dynCam = !global.dynCam;
+}
+if(keyboard_check_pressed(ord("P")))
+{
+	global.rand = !global.rand;
 }
 if(keyboard_check_pressed(ord("H")))
 {
@@ -37,6 +58,7 @@ if(keyboard_check_pressed(ord("M")))
 if(keyboard_check(ord("G")))
 {
 	global.pfuel = clamp(global.pfuel + 100, 0, 10000);
+	global.phealth = clamp(global.phealth + 1, 0, 500);
 }
 counter = clamp(counter 
 	- keyboard_check_pressed(vk_left) + keyboard_check_pressed(vk_right),

@@ -22,5 +22,5 @@ pipeX = 0;
 backWheelX = 0;
 backWheelY = 0;
 trail_init();
-global.target = o_pathfollow;
+hp = 10;
 dead = false;

@@ -76,7 +76,7 @@ if (playerAng < 0)
 }
 image_angle = playerAng;
 
-	if (place_meeting(x,y,o_gasLit) && !dead)
+	if ((place_meeting(x,y,o_gasLit) || hp <= 0) && !dead)
 	{
 		dead = true;
 		global.enemies--;

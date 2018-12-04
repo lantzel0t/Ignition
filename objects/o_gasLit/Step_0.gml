@@ -8,3 +8,4 @@ if (image_xscale <= 0.4)
 {
 	instance_destroy();
 }
+part_particles_create(global.PS_high, x, y, global.Part_fburst, 1);

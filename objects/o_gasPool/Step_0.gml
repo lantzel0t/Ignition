@@ -10,6 +10,9 @@ if (image_xscale > 0.9 && collision_point(x,y,o_player,false,true) || collision_
 {
 	instance_create_depth(x,y, depth - 1, o_gasLit);
 	part_particles_create(global.PS_high, x, y, global.Part_fburst, 20);
+	if (place_meeting(x, y, o_player)) {
+		global.immune = 10;
+	}
 	instance_destroy();
 }
 life++;

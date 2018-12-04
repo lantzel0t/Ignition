@@ -47,6 +47,14 @@ if (dead)
 	image_alpha -= 0.01;
 }
 if (image_alpha < 0) instance_destroy();
+
+	if ((place_meeting(x,y,o_gasLit) || hp <= 0) && !dead)
+	{
+		dead = true;
+		global.enemies--;
+		alarm[0] = 20;
+		//instance_destroy();
+	}
 calculate_movement_and_collision(vel, image_angle + 90);
 
 //turns the wheelies

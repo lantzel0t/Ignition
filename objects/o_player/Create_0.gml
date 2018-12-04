@@ -4,7 +4,7 @@ turnAng = 0;
 maxTurnAng = 6;
 is3d = true;
 image_speed = 0;
-global.control_scheme = "keyboard";
+global.control_scheme = "controller";
 vel = 0;
 maxvel = 12;
 accel = 0.175;
@@ -22,6 +22,9 @@ pipeX = 0;
 backWheelX = 0;
 backWheelY = 0;
 global.pfuel = 10000;
+global.phealth = 500;
+global.immune = 10;
+deadA = 1.5;
 trail_init();
 //create_textevent("Test!", -1);
 
